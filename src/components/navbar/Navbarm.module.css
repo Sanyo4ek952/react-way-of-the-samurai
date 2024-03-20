@@ -1,0 +1,20 @@
+.navBarList {
+
+}
+
+.navBar {
+    display: flex;
+    flex-direction: column;
+    grid-area: n;
+    background-color: burlywood;
+    padding: 10px;
+    color: white;
+}
+
+.iteme {
+    color: white;
+    text-decoration: none;
+}
+.iteme.active{
+    color: gold;
+}

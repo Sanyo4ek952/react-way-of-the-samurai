@@ -1,12 +1,16 @@
-import './App.css';
-import Header from "./Header/Header";
-import Technologies from "./Technologies/Technologies";
+import './App.module.css';
+import Header from "./components/header/Header";
+import Navbar from "./components/navbar/Navbar";
+import Profile from "./components/profile/Profile";
+import s from "./App.module.css"
+
 
 const App = () => {
     return (
-        <div>
+        <div className={s.app}>
             <Header/>
-            <Technologies/>
+            <Navbar />
+            <Profile />
         </div>
     );
 }
