@@ -2,42 +2,45 @@ import './Dialogs.module.css'
 import s from "./Dialogs.module.css"
 import {NavLink} from "react-router-dom";
 
+const DialogName = (props) => {
+    let path = `/dialogs/`
+    return (
+        <NavLink to={path + props.id} className={s.dialogNameIteme}>
+            {props.name}
+        </NavLink>
+    )
+}
+const Message = (props) => {
+
+    return (<div className={s.dialogChatMessage}>
+            {props.message}
+        </div>
+    )
+}
 const Dialogs = () => {
+    let dialogNames = [
+        {name: 'Valera',id:'1',},
+        {name: 'Kolya',id:'2',},
+        {name: 'Oleg',id:'3',},
+        {name: 'School',id:'4',},
+        {name: 'Incubator',id:'5',},
+        {name: 'Job',id:'6',},
+    ]
+    let message = [
+        {message:'Hellow'},
+        {message:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.'},
+        {message:'Lorem ipsum dolor sit.'},
+    ]
+    const dialogName = dialogNames.map(d=><DialogName name={d.name} id={d.id} />)
+    const dialogMessage = message.map(m=><Message message={m.message} />)
     return (
         <div className={s.dialogs}>
             <div className={s.dialogNames}>
-                <NavLink to='' className={s.dialogNameIteme}>
-                    Valera
-                </NavLink>
-                <NavLink to='' className={s.dialogNameIteme}>
-                    Kolya
-                </NavLink>
-                <NavLink to='' className={s.dialogNameIteme}>
-                    Oleg
-                </NavLink>
-                <NavLink to='' className= {s.dialogNameIteme}>
-                    School
-                </NavLink>
-                <NavLink to='' className={s.dialogNameIteme}>
-                    Incubator
-                </NavLink>
-                <NavLink to='' className={s.dialogNameIteme}>
-                    Job
-                </NavLink>
+                {dialogName}
             </div>
             <div className={s.dialogsChat}>
-                <div className={s.dialogChatMessage}>
-                    Hellow
-                </div>
-                <div className={s.dialogChatMessage}>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                </div>
-                <div className={s.dialogChatMessage}>
-                    Lorem ipsum dolor sit.
-                </div>
+                {dialogMessage}
             </div>
-
-
         </div>
     )
 }
