@@ -1,0 +1,13 @@
+.header{
+    background-color: #387d2e;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    grid-area: h;
+}
+.img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
