@@ -14,7 +14,13 @@
 .iteme {
     color: white;
     text-decoration: none;
+    transition: all 0.3s ease 0s;
 }
-.iteme.active{
+ .active{
     color: gold;
+     text-decoration: none;
+     font-weight: 600;
+     font-size: 18px;
+     padding-left: 5px;
+     transition: all 0.3s ease 0s;
 }
