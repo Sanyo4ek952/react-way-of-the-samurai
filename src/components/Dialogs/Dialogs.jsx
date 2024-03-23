@@ -19,9 +19,9 @@ const Message = (props) => {
 }
 
 const Dialogs = (props) => {
-    let dialogName = props.dialogNames.map((d, key)  => <DialogName name={d.name} key={d.id}/>)
+    let dialogName = props.state.dialogsPage.dialogNames.map((d, key)  => <DialogName name={d.name} id={d.id}/>)
 
-    let dialogMessage = props.dialogMessage.map((m, key) => <Message message={m.message} key={m.id}/>)
+    let dialogMessage = props.state.dialogsPage.dialogMessage.map((m, key) => <Message message={m.message} key={m.id}/>)
     return (
         <div className={s.dialogs}>
             <div className={s.dialogNames}>
