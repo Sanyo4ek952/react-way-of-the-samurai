@@ -12,14 +12,16 @@ const DialogName = (props) => {
     )
 }
 const Message = (props) => {
-    return (<div className={s.dialogChatMessage}>
+    return (<div key={props.id}  className={s.dialogChatMessage}>
             {props.message}
         </div>
     )
 }
+
 const Dialogs = (props) => {
-    const dialogName = props.dialogNames.map(d => <DialogName name={d.name} id={d.id}/>)
-    const dialogMessage = props.dialogMessage.map(m => <Message message={m.message}/>)
+    let dialogName = props.dialogNames.map((d, key)  => <DialogName name={d.name} key={d.id}/>)
+
+    let dialogMessage = props.dialogMessage.map((m, key) => <Message message={m.message} key={m.id}/>)
     return (
         <div className={s.dialogs}>
             <div className={s.dialogNames}>
