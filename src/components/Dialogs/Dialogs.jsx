@@ -3,9 +3,10 @@ import s from "./Dialogs.module.css"
 import {NavLink} from "react-router-dom";
 
 const DialogName = (props) => {
+    let navData = ()=>navData.isActive?s.active:'';
     let path = `/dialogs/`
     return (
-        <NavLink to={path + props.id} className={s.dialogNameIteme}>
+        <NavLink to={path + props.id} className= {navData => navData.isActive ? s.active : s.dialogNameIteme }>
             {props.name}
         </NavLink>
     )
