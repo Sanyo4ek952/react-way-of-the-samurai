@@ -3,7 +3,8 @@ import s from "./MyPost.module.css"
 import Post from "./Post/Post";
 
 
-const MyPost = () => {
+const MyPost = (props) => {
+    let post = props.post.map(p => <Post postText={p.text} postLike={p.like} postName={p.name}/>)
     return (
         <div>
             <div>
@@ -13,8 +14,7 @@ const MyPost = () => {
                     <button className={s.button}>Add post</button>
                 </div>
                 <div className={s.posts}>
-                    <Post like="23"/>
-                    <Post like="16"/>
+                    {post}
                 </div>
             </div>
         </div>

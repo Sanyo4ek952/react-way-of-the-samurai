@@ -1,12 +1,6 @@
 import './Post.module.css'
 import s from "./Post.module.css"
 
-const post =[
-    {text: 'Good code!', like:24},
-    {text: 'Were you from?!', like:9},
-    {text: 'Like you, bro', like:12},
-
-]
 const Post = (props) => {
     return (
         <div className={s.post}>
@@ -16,12 +10,12 @@ const Post = (props) => {
                      alt=""/>
                 <div className={s.description}>
                     <div className={s.name}>
-                        Victor
+                        {props.postName}
                     </div>
-                    <div className={s.text}>{post[0].text}</div>
+                    <div className={s.text}>{props.postText}</div>
                 </div>
             </div>
-            <span>like {props.like}</span>
+            <span>like {props.postLike}</span>
         </div>
     )
 }
