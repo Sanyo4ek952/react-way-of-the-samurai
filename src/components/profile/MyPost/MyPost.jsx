@@ -9,8 +9,7 @@ const MyPost = (props) => {
     let post = props.post.map((p, key) => <Post key={p.id} postText={p.text} postLike={p.like} postName={p.name}/>)
     let newPostElement = React.createRef();
 
-    let addiPost = ()=>{
-        debugger
+    let addPost = ()=>{
         let text = newPostElement.current.value;
         props.addPost(text)
     }
@@ -20,7 +19,7 @@ const MyPost = (props) => {
                 My posts
                 <div className={s.addPost}>
                     <textarea ref={newPostElement} className={s.textarea}></textarea>
-                    <button onClick={addiPost} className={s.button}>Add post</button>
+                    <button onClick={addPost} className={s.button}>Add post</button>
                 </div>
                 <div className={s.posts}>
                     {post}
