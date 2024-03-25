@@ -1,0 +1,27 @@
+.friends {
+
+}
+.friendsConteiner{
+    display: flex;
+    flex-wrap: wrap;
+justify-content: space-between;
+    row-gap: 10px;
+}
+.friendsIteme {
+    width: 70px;
+    display: flex;
+    flex-direction: column;
+align-items: center;
+    color: Black;
+    text-decoration: none;
+}
+
+.friendsItemeImage {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.friendsItemeName {
+
+}

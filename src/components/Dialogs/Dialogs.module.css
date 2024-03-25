@@ -8,29 +8,26 @@
     font-size: 22px;
     padding: 15px 15px 15px 10px;
     border-right: 2px solid black;
-
-
 }
-.dialogContact{
+
+.dialogContact {
     display: flex;
     border-bottom: 1px solid #c0bbbb;
 }
-.dialogLogo{
+
+.dialogLogo {
     border-radius: 50%;
     width: 50px;
     height: 50px;
-
 }
+
 .dialogNames {
     display: flex;
     flex-direction: column;
-    width: 100%;
-
 }
 
 .dialogNameIteme:hover {
     background-color: #447bea;
-
 }
 
 .dialogNameIteme {
@@ -42,6 +39,8 @@
     flex-direction: row-reverse;
     gap: 15px;
     align-items: center;
+    flex: 1 0 auto;
+    justify-content: flex-end;
 }
 
 .active {
@@ -55,23 +54,51 @@
     flex-direction: row-reverse;
     gap: 15px;
     align-items: center;
+    justify-content: flex-end;
 }
-.active .dialogLogo   {
+
+.active .dialogLogo {
     transform: scale(1.2);
     transition: all 0.3s ease 0s;
 }
 
 .dialogsChat {
-    display: flex;
+display: flex;
     flex-direction: column;
-    gap: 10px;
-    padding: 15px;
 
+    align-items: center;
 }
 
 .dialogChatMessage {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
     padding: 15px;
+    flex: 1 0 auto;
+}
+
+.dialogChatMessage span {
     background-color: antiquewhite;
+    display: inline-block;
+    padding: 15px;
     border-radius: 10px;
-    align-self: flex-start;
+}
+
+.dialogChatMessage:nth-child(even){
+    align-self: flex-end;
+}
+.createMessage{
+    width: 80%;
+    height: 60px;
+    border-radius: 10px;
+    padding: 10px;
+    resize:none;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+span{
+    width: 80%;
+}
+span:nth-child(even){
+    align-self: flex-end;
 }
