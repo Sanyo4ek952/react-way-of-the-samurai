@@ -42,6 +42,7 @@ let state = {
             },
             {id: 3, message: 'Lorem ipsum dolor sit.',},
         ],
+        dialogNewMessage: 'Message'
     },
     profilePage: {
         post: [
@@ -50,7 +51,9 @@ let state = {
             {id: 3, name: 'Alexandr', text: 'Like you, bro', like: 12},
 
         ],
+        newText: 'it-incubator'
     },
+
     sidebar: {
         friends: [
             {
@@ -93,15 +96,35 @@ let state = {
 
     }
 }
-export let addPost = (postMessage) => {
+window.state = state;
+
+export let addPost = () => {
     let newPost = {
         id: 4,
         name: 'Alexandr',
-        text: postMessage,
+        text: state.profilePage.newText,
         like: 0
     }
     state.profilePage.post.push(newPost)
-    renderEntireTree(state)
+    state.profilePage.newText = ' ';
+    renderEntireTree(state);
+}
+export let newPostText = (newText) => {
+    state.profilePage.newText = newText;
+    renderEntireTree(state);
+}
+
+export let addMessage = () => {
+    let newMessage = {
+        id: 5, message: state.dialogsPage.dialogNewMessage,
+    }
+    state.dialogsPage.dialogMessage.push(newMessage)
+    state.dialogsPage.dialogNewMessage = ' ';
+    renderEntireTree(state);
+}
+export let newMessageText = (newText) => {
+    state.dialogsPage.dialogNewMessage = newText;
+    renderEntireTree(state);
 }
 
 export default state;
