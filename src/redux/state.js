@@ -1,4 +1,7 @@
-import {renderEntireTree} from "../render";
+// Создание функции для того чтобы получить ее из index.js
+let renderEntireTree = () => {
+    console.log('ehhf')
+}
 
 let state = {
     dialogsPage: {
@@ -98,6 +101,7 @@ let state = {
 }
 window.state = state;
 
+//Добавление поста на странице Profile
 export let addPost = () => {
     let newPost = {
         id: 4,
@@ -109,11 +113,13 @@ export let addPost = () => {
     state.profilePage.newText = ' ';
     renderEntireTree(state);
 }
+//Добавление текста в поле ввода Profile
 export let newPostText = (newText) => {
     state.profilePage.newText = newText;
     renderEntireTree(state);
 }
 
+//Добавление сообщения на странице Message
 export let addMessage = () => {
     let newMessage = {
         id: 5, message: state.dialogsPage.dialogNewMessage,
@@ -122,9 +128,15 @@ export let addMessage = () => {
     state.dialogsPage.dialogNewMessage = ' ';
     renderEntireTree(state);
 }
+
+//Добавление текста в поле ввода на странице Message
 export let newMessageText = (newText) => {
     state.dialogsPage.dialogNewMessage = newText;
     renderEntireTree(state);
 }
 
+//Создание и экспорт функции, для того  чтобы получить функцию из index.js
+export let subscribe = (observer) => {
+    renderEntireTree = observer;
+}
 export default state;
