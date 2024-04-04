@@ -5,15 +5,15 @@ import React from "react";
 
 
 const MyPost = (props) => {
-    let post = props.post.map((p, key) => <Post
+    let post = props.state.profilePage.post.map((p, key) => <Post
         key={p.id} postText={p.text} postLike={p.like} postName={p.name}/>)
     let newPostElement = React.createRef();
     let addPost = () => {
-        props.addPost()
+        props.dispatch({type : "ADD-POST"})
     }
     let changePostText = () => {
         let text = newPostElement.current.value;
-        props.newPostText(text)
+        props.dispatch({type : "NEW-POST-TEXT", newText: text})
     }
     return (
         <div>
@@ -24,7 +24,7 @@ const MyPost = (props) => {
                         ref={newPostElement}
                         className={s.textarea}
                         onChange={changePostText}
-                        value={props.newText}/>
+                        value={props.state.profilePage.newText}/>
                     <button onClick={addPost}
                             className={s.button}>
                         Add post

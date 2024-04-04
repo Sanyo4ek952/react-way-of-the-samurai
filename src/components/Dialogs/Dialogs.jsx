@@ -31,11 +31,11 @@ const Dialogs = (props) => {
     let newMessageElement = React.createRef();
     let addMessage = () => {
         // Обращаемся к этой ссылке и ссылаемся на html элемент и на его значение
-        props.addMessage()
+        props.dispatch({type :"ADD-MESSAGE" })
     }
     let updateMessageText = () => {
         let text = newMessageElement.current.value;
-        props.newMessageText(text)
+        props.dispatch({type :"NEW-MESSAGE-TEXT", newText: text })
     }
     return (
         <div className={s.dialogs}>
@@ -50,7 +50,7 @@ const Dialogs = (props) => {
                 <textarea ref={newMessageElement}
                           className={s.createMessage}
                           onChange={updateMessageText}
-                          value={props.dialogNewMessage}/>
+                          value={props.state.dialogsPage.dialogNewMessage}/>
                 <button onClick={addMessage}>Отправить</button>
             </div>
 

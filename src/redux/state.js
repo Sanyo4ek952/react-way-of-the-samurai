@@ -103,40 +103,43 @@ export const store = {
     getState() {
         return this._state
     },
-    //Добавление сообщения на странице Message
-    addMessage() {
-        let newMessage = {
-            id: 5, message: this._state.dialogsPage.dialogNewMessage,
-        };
-        this._state.dialogsPage.dialogMessage.push(newMessage);
-        this._state.dialogsPage.dialogNewMessage = ' ';
-        this._callSubscriber(this._state);
-    },
-    //Добавление текста в поле ввода на странице Message
-    newMessageText(newText) {
-        this._state.dialogsPage.dialogNewMessage = newText;
-        this._callSubscriber(this._state);
-    },
-    //Добавление поста на странице Profile
-    addPost() {
-        let newPost = {
-            id: 4,
-            name: 'Alexandr',
-            text: this._state.profilePage.newText,
-            like: 0
-        }
-        this._state.profilePage.post.push(newPost)
-        this._state.profilePage.newText = ' ';
-        this._callSubscriber(this._state);
-    },
-    //Добавление текста в поле ввода Profile
-    newPostText(newText) {
-        this._state.profilePage.newText = newText;
-        this._callSubscriber(this._state);
-    },
+
     subscribe(observer) {
         this._callSubscriber = observer;
     },
+    dispatch(action){
+        //Добавление сообщения на странице Message
+        if(action.type==="ADD-POST"){
+            let newPost = {
+                id: 4,
+                name: 'Alexandr',
+                text: this._state.profilePage.newText,
+                like: 0
+            }
+            this._state.profilePage.post.push(newPost)
+            this._state.profilePage.newText = ' ';
+            this._callSubscriber(this._state);
+        }
+        //Добавление текста в поле ввода на странице Message
+        else if(action.type==="NEW-POST-TEXT"){
+            this._state.profilePage.newText = action.newText;
+            this._callSubscriber(this._state);
+        }
+        //Добавление поста на странице Profile
+        else if( action.type==="ADD-MESSAGE"){
+            let newMessage = {
+                id: 5, message: this._state.dialogsPage.dialogNewMessage,
+            };
+            this._state.dialogsPage.dialogMessage.push(newMessage);
+            this._state.dialogsPage.dialogNewMessage = ' ';
+            this._callSubscriber(this._state);
+        }
+        //Добавление текста в поле ввода Profile
+        else if( action.type==="NEW-MESSAGE-TEXT"){
+            this._state.dialogsPage.dialogNewMessage = action.newText;
+            this._callSubscriber(this._state);
+        }
+        },
 }
 
 window.store = store;
