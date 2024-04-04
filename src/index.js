@@ -19,7 +19,7 @@ let renderEntireTree = (state) => {
 }
 
 //Отрисовка всего дерева
-renderEntireTree(store.getState())
+renderEntireTree(store.getState());
 
 // Вызов функции из state и вкладываем ей функцию для передачи ее в state
 store.subscribe(renderEntireTree)

@@ -2,6 +2,7 @@ import './MyPost.module.css'
 import s from "./MyPost.module.css"
 import Post from "./Post/Post";
 import React from "react";
+import {addPostActionCreator, changePostTextActionCreator} from "../../../redux/state";
 
 
 const MyPost = (props) => {
@@ -9,11 +10,11 @@ const MyPost = (props) => {
         key={p.id} postText={p.text} postLike={p.like} postName={p.name}/>)
     let newPostElement = React.createRef();
     let addPost = () => {
-        props.dispatch({type : "ADD-POST"})
+        props.dispatch(addPostActionCreator())
     }
     let changePostText = () => {
         let text = newPostElement.current.value;
-        props.dispatch({type : "NEW-POST-TEXT", newText: text})
+        props.dispatch(changePostTextActionCreator(text))
     }
     return (
         <div>

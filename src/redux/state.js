@@ -1,5 +1,8 @@
+const ADD_POST = "ADD-POST";
+const NEW_POST_TEXT = "NEW-POST-TEXT";
+const ADD_MESSAGE = "ADD-MESSAGE";
+const NEW_MESSAGE_TEXT = "NEW-MESSAGE-TEXT";
 // Создание функции для того чтобы получить ее из index.js
-
 export const store = {
     _state: {
         dialogsPage: {
@@ -103,13 +106,12 @@ export const store = {
     getState() {
         return this._state
     },
-
     subscribe(observer) {
         this._callSubscriber = observer;
     },
-    dispatch(action){
+    dispatch(action) {
         //Добавление сообщения на странице Message
-        if(action.type==="ADD-POST"){
+        if (action.type === ADD_POST) {
             let newPost = {
                 id: 4,
                 name: 'Alexandr',
@@ -121,12 +123,12 @@ export const store = {
             this._callSubscriber(this._state);
         }
         //Добавление текста в поле ввода на странице Message
-        else if(action.type==="NEW-POST-TEXT"){
+        else if (action.type === NEW_POST_TEXT) {
             this._state.profilePage.newText = action.newText;
             this._callSubscriber(this._state);
         }
         //Добавление поста на странице Profile
-        else if( action.type==="ADD-MESSAGE"){
+        else if (action.type === ADD_MESSAGE) {
             let newMessage = {
                 id: 5, message: this._state.dialogsPage.dialogNewMessage,
             };
@@ -135,12 +137,20 @@ export const store = {
             this._callSubscriber(this._state);
         }
         //Добавление текста в поле ввода Profile
-        else if( action.type==="NEW-MESSAGE-TEXT"){
+        else if (action.type === NEW_MESSAGE_TEXT) {
             this._state.dialogsPage.dialogNewMessage = action.newText;
             this._callSubscriber(this._state);
         }
-        },
-}
+    },
+};
+export const addMessageActionCreator = () =>
+    ({type: ADD_MESSAGE});
+export const updateMessageTextActionCreator = (text) =>
+    ({type: NEW_MESSAGE_TEXT, newText: text});
+export const addPostActionCreator = () =>
+    ({type: ADD_POST});
+export const changePostTextActionCreator = (text) =>
+    ({type: NEW_POST_TEXT, newText: text});
 
 window.store = store;
 

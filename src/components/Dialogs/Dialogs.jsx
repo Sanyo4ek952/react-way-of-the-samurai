@@ -2,6 +2,7 @@ import './Dialogs.module.css'
 import s from "./Dialogs.module.css"
 import {NavLink} from "react-router-dom";
 import React from "react";
+import {addMessageActionCreator, updateMessageTextActionCreator} from "../../redux/state";
 
 const DialogName = (props) => {
     //Добавляем класс к активной кнопке
@@ -10,7 +11,7 @@ const DialogName = (props) => {
     return (<div className={s.dialogContact}>
             <NavLink to={path + props.id} className={navData => navData.isActive ? s.active : s.dialogNameIteme}>
                 {props.name}
-                <img src={props.image} className={s.dialogLogo}></img>
+                <img src={props.image} className={s.dialogLogo} alt='Логотип' ></img>
             </NavLink>
         </div>
     )
@@ -27,15 +28,15 @@ const Dialogs = (props) => {
         (d, key) => <DialogName name={d.name} image={d.image} id={d.id} key={d.id}/>)
     let dialogMessage = props.state.dialogsPage.dialogMessage.map(
         (m, key) => <Message key={m.id} message={m.message} id={m.id}/>)
-    // Переменная будет содержать ссылку на какойнибудь элемент
+    // Переменная будет содержать ссылку на какой-нибудь элемент
     let newMessageElement = React.createRef();
     let addMessage = () => {
         // Обращаемся к этой ссылке и ссылаемся на html элемент и на его значение
-        props.dispatch({type :"ADD-MESSAGE" })
+        props.dispatch(addMessageActionCreator())
     }
     let updateMessageText = () => {
         let text = newMessageElement.current.value;
-        props.dispatch({type :"NEW-MESSAGE-TEXT", newText: text })
+        props.dispatch(updateMessageTextActionCreator(text))
     }
     return (
         <div className={s.dialogs}>
@@ -53,8 +54,6 @@ const Dialogs = (props) => {
                           value={props.state.dialogsPage.dialogNewMessage}/>
                 <button onClick={addMessage}>Отправить</button>
             </div>
-
-
         </div>
     )
 }
