@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/react-way-of-the-samurai/static/css/main.744c3710.css",
+    "main.js": "/react-way-of-the-samurai/static/js/main.2e0110e2.js",
+    "static/js/453.5e560239.chunk.js": "/react-way-of-the-samurai/static/js/453.5e560239.chunk.js",
+    "index.html": "/react-way-of-the-samurai/index.html",
+    "main.744c3710.css.map": "/react-way-of-the-samurai/static/css/main.744c3710.css.map",
+    "main.2e0110e2.js.map": "/react-way-of-the-samurai/static/js/main.2e0110e2.js.map",
+    "453.5e560239.chunk.js.map": "/react-way-of-the-samurai/static/js/453.5e560239.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.744c3710.css",
+    "static/js/main.2e0110e2.js"
+  ]
+}
