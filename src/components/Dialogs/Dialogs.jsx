@@ -2,7 +2,7 @@ import './Dialogs.module.css'
 import s from "./Dialogs.module.css"
 import {NavLink} from "react-router-dom";
 import React from "react";
-import {addMessageActionCreator, updateMessageTextActionCreator} from "../../redux/state";
+import {addMessageActionCreator, updateMessageTextActionCreator} from "../../redux/dialogs-reduce";
 
 const DialogName = (props) => {
     //Добавляем класс к активной кнопке

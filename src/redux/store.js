@@ -1,7 +1,7 @@
-const ADD_POST = "ADD-POST";
-const NEW_POST_TEXT = "NEW-POST-TEXT";
-const ADD_MESSAGE = "ADD-MESSAGE";
-const NEW_MESSAGE_TEXT = "NEW-MESSAGE-TEXT";
+import profileReduce from "./profile-reduce";
+import dialogsReduce from "./dialogs-reduce";
+
+
 // Создание функции для того чтобы получить ее из index.js
 export const store = {
     _state: {
@@ -110,47 +110,13 @@ export const store = {
         this._callSubscriber = observer;
     },
     dispatch(action) {
-        //Добавление сообщения на странице Message
-        if (action.type === ADD_POST) {
-            let newPost = {
-                id: 4,
-                name: 'Alexandr',
-                text: this._state.profilePage.newText,
-                like: 0
-            }
-            this._state.profilePage.post.push(newPost)
-            this._state.profilePage.newText = ' ';
-            this._callSubscriber(this._state);
-        }
-        //Добавление текста в поле ввода на странице Message
-        else if (action.type === NEW_POST_TEXT) {
-            this._state.profilePage.newText = action.newText;
-            this._callSubscriber(this._state);
-        }
-        //Добавление поста на странице Profile
-        else if (action.type === ADD_MESSAGE) {
-            let newMessage = {
-                id: 5, message: this._state.dialogsPage.dialogNewMessage,
-            };
-            this._state.dialogsPage.dialogMessage.push(newMessage);
-            this._state.dialogsPage.dialogNewMessage = ' ';
-            this._callSubscriber(this._state);
-        }
-        //Добавление текста в поле ввода Profile
-        else if (action.type === NEW_MESSAGE_TEXT) {
-            this._state.dialogsPage.dialogNewMessage = action.newText;
-            this._callSubscriber(this._state);
-        }
+        this._state.profilePage = profileReduce(this._state.profilePage, action)
+        this._state.dialogsPage = dialogsReduce(this._state.dialogsPage, action)
+        this._callSubscriber(this._state);
     },
 };
-export const addMessageActionCreator = () =>
-    ({type: ADD_MESSAGE});
-export const updateMessageTextActionCreator = (text) =>
-    ({type: NEW_MESSAGE_TEXT, newText: text});
-export const addPostActionCreator = () =>
-    ({type: ADD_POST});
-export const changePostTextActionCreator = (text) =>
-    ({type: NEW_POST_TEXT, newText: text});
+
+
 
 window.store = store;
 
