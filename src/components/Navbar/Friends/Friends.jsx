@@ -12,7 +12,7 @@ let FriendsIteme = (props) => {
     )
 }
 const Friends = (props) => {
-    let friendsFun = props.state.map((p, key) => <FriendsIteme key={p.id} id={p.id} image={p.image} name={p.name}/>)
+    let friendsFun = props.state.map((p, key) => <FriendsIteme  key={p.id} id={p.id} image={p.image} name={p.name}/>)
     return (
         <div>
             <h1 className={s.friends}>Friends</h1>

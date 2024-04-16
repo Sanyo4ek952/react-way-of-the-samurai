@@ -25,3 +25,9 @@ align-items: center;
 .friendsItemeName {
 
 }
+.friendsConteiner a.active{
+    background-color: #447bea;
+}
+.active{
+    background-color: #447bea;
+}

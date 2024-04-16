@@ -48,7 +48,7 @@ const Dialogs = (props) => {
                      className={s.dialogChatMessage}>
                     {dialogMessage}
                 </div>
-                <textarea ref={newMessageElement}
+                <textarea  ref={newMessageElement}
                           className={s.createMessage}
                           onChange={updateMessageText}
                           value={props.state.dialogsPage.dialogNewMessage}/>
