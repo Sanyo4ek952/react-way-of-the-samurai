@@ -2,7 +2,6 @@ import './Dialogs.module.css'
 import s from "./Dialogs.module.css"
 import {NavLink} from "react-router-dom";
 import React from "react";
-import {addMessageActionCreator, updateMessageTextActionCreator} from "../../redux/dialogs-reduce";
 
 const DialogName = (props) => {
     //Добавляем класс к активной кнопке
@@ -36,7 +35,7 @@ const Dialogs = (props) => {
     }
     let updateMessageText = () => {
         let text = newMessageElement.current.value;
-        props.updateMessageText()
+        props.updateMessageText(text)
     }
     return (
         <div className={s.dialogs}>

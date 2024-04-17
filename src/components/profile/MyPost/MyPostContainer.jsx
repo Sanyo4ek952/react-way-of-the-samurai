@@ -13,7 +13,7 @@ const MyPostContainer = (props) => {
 
     let changePostText = (text) => {
         let action = changePostTextActionCreator(text)
-        props.store.dispatch()
+        props.store.dispatch(action)
     }
     return (
         <MyPost newText={state.profilePage.newText} posts={state.profilePage.post} changePostText={changePostText} addPost={addPost}/>
