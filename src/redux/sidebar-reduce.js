@@ -36,8 +36,6 @@ let initialState = {
             image: 'https://avatars.mds.yandex.net/i?id=b0031f0690c2e8e5e7886cf2a105013094f005ce-12574745-images-thumbs&n=13'
         },
     ]
-
-
 }
 
 let sidebarReduce = (state = initialState, action) => {
