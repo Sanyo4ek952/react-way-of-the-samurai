@@ -6,15 +6,15 @@ import {addPostActionCreator, changePostTextActionCreator} from "../../../redux/
 
 
 const MyPost = (props) => {
-    let post = props.state.profilePage.post.map((p, key) => <Post
+    let post = props.posts.map((p, key) => <Post
         key={p.id} postText={p.text} postLike={p.like} postName={p.name}/>)
     let newPostElement = React.createRef();
-    let addPost = () => {
-        props.dispatch(addPostActionCreator())
+    let onAddPost = () => {
+        props.addPost()
     }
     let changePostText = () => {
         let text = newPostElement.current.value;
-        props.dispatch(changePostTextActionCreator(text))
+        props.changePostText()
     }
     return (
         <div>
@@ -25,8 +25,8 @@ const MyPost = (props) => {
                         ref={newPostElement}
                         className={s.textarea}
                         onChange={changePostText}
-                        value={props.state.profilePage.newText}/>
-                    <button onClick={addPost}
+                        value={props.newText}/>
+                    <button onClick={onAddPost}
                             className={s.button}>
                         Add post
                     </button>

@@ -42,7 +42,7 @@ let initialState = {
 
 let sidebarReduce = (state = initialState, action) => {
 
-return state;
+    return state;
 }
 
 export default sidebarReduce;
