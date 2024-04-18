@@ -1,8 +1,7 @@
 import './Dialogs.module.css'
-
 import {addMessageActionCreator, updateMessageTextActionCreator} from "../../redux/dialogs-reduce";
-
 import {connect} from "react-redux";
+import Dialogs from "./Dialogs";
 
 
 /*const DialogsContainer = (props) => {
@@ -38,5 +37,5 @@ const mapDispatchToProps = (dispatch) => {
         addMessage: () => dispatch(addMessageActionCreator())
     }
 }
-const DialogsContainer = connect(mapStateToProps,mapDispatchToProps)
+const DialogsContainer = connect(mapStateToProps,mapDispatchToProps)(Dialogs)
 export default DialogsContainer

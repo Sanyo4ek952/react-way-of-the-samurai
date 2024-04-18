@@ -1,7 +1,5 @@
 import './Header.module.css'
 import s from "./Header.module.css"
-import StoreContext from "../../StoreContext";
-
 const Header = () => {
     return (
         <div className={s.header}>
