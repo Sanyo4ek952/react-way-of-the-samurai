@@ -5,7 +5,6 @@ import React from "react";
 
 const DialogName = (props) => {
     //Добавляем класс к активной кнопке
-    let navData = () => navData.isActive ? s.active : '';
     let path = `/dialogs/`
     return (<div className={s.dialogContact}>
             <NavLink to={path + props.id} className={navData => navData.isActive ? s.active : s.dialogNameIteme}>
